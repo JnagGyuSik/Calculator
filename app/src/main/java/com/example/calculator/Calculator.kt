@@ -4,8 +4,8 @@ open class Calculator(){
     //예외처리
     open fun calculator(num1: String, calculation:String, num2: String){
         try {
-            val num3 = num1.toInt()
-            val num4 = num2.toInt()
+            val num3 = num1.toDouble()
+            val num4 = num2.toDouble()
             when (calculation) {
                 "+" -> AddOperation(num3,num4).operate()
                 "-" -> SubstractOperation(num3,num4).operate()
@@ -24,7 +24,7 @@ abstract class Operation{
     abstract fun operate()
 }
 
-class AddOperation(val num1:Int, val num2: Int):Operation(){
+class AddOperation(val num1:Double, val num2: Double):Operation(){
     //구현체
     override fun operate() {
         //더하기
@@ -34,7 +34,7 @@ class AddOperation(val num1:Int, val num2: Int):Operation(){
 }
 
 
-class SubstractOperation(val num1:Int, val num2: Int) : Operation(){
+class SubstractOperation(val num1:Double, val num2: Double) : Operation(){
     override fun operate() {
         //빼기
         val result = num1 - num2
@@ -42,7 +42,7 @@ class SubstractOperation(val num1:Int, val num2: Int) : Operation(){
     }
 }
 
-class MultiplyOperation(val num1:Int, val num2: Int) : Operation(){
+class MultiplyOperation(val num1:Double, val num2: Double) : Operation(){
     override fun operate() {
         //곱하기
         val result = num1 * num2
@@ -50,10 +50,10 @@ class MultiplyOperation(val num1:Int, val num2: Int) : Operation(){
     }
 }
 
-class DivideOperation(val num1:Int, val num2: Int) : Operation(){
+class DivideOperation(val num1:Double, val num2: Double) : Operation(){
     override fun operate() {
         //나누기
-        val result = num1.toDouble() / num2.toDouble()
+        val result = num1 / num2
         println("$num1 / $num2 = $result")
     }
 }
